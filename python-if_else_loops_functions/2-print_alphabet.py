@@ -1,2 +1,3 @@
-for i in range(97, 123):
+for i in list(map(chr, range(97, 123))):
     print(i)
+
