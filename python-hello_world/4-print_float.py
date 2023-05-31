@@ -2,4 +2,3 @@
 number = 3.14159
 result = "{:.2f}".format(number)
 print(f"Float: {result}")
-     
