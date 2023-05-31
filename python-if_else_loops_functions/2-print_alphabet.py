@@ -1,2 +1,2 @@
-for i in range(26):
-    print(chr(ord('a') + i))
+for i in range(97, 123):
+    print(i)
