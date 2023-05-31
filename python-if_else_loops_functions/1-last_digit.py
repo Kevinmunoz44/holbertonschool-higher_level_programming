@@ -8,8 +8,11 @@ else:
     sign = ""
 
 if digit > 5:
-    print(f"Last digit of {number} is {sign}{digit} and is greater than 5")
+    print("Last digit of {} is {}{} and is greater than 5"
+          .format(number, sign, digit))
 if digit == 0:
-    print(f"Last digit of {number} is {sign}{digit} and is 0")
+    print("Last digit of {} is {}{} and is 0"
+          .format(number, sign, digit))
 if digit < 6 and digit != 0:
-    print(f"Last digit of {number} is {sign}{digit} and is less than 6 and not 0")
+    print("Last digit of {} is {}{} and is less than 6 and not 0"
+          .format(number, sign, digit))
