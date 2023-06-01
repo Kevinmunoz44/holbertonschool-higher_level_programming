@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 def islower(c):
-    if c.lower() == True:
+    i = c.lower()
+    k = c.otherwise()
+    if c == i:
         return True
-    if c.otherwise() == False:
+    if c == k:
         return False
