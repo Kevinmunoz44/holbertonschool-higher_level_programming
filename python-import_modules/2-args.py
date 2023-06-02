@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    
+
     import sys
     numbers = sys.argv[1:]
     num_len = len(numbers)
