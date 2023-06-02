@@ -8,7 +8,7 @@ if __name__ == "__main__":
     if num_len == 0:
         print(f"{num_len}", "arguments.")
     elif num_len == 1:
-        print(f"{num_len}", "arguments:")
+        print(f"{num_len}", "argument:")
     else:
         print(f"{num_len}", "arguments:")
 
