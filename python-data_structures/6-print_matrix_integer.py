@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 def print_matrix_integer(matrix=[[]]):
-    for i in range(len(matrix[0])):
-        for j in range(len(matrix)):
-            print(matrix[i - (j % 1) * (i + i + 1)][j], end=" ")
+    for i in matrix:
+        for k, j in enumerate(i):
+            if k != len(i) - 1:
+                print(j, end=" ")
+            else:
+                print('{:d}'.format(j), end="")
         print()
