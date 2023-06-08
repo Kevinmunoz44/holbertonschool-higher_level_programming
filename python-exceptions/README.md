@@ -20,4 +20,7 @@ The main exceptions defined in Python are: TypeError : Occurs when an operation 
 --- 
 
 ![GitHub Contributors Image](https://contrib.rocks/image?repo=kevinmunoz44/holbertonschool-higher_level_programming)
-Kevin Munoz Benitez<a href="https://github.com/kevinmunoz44" target="_blank"> @kevinmunoz44</a> ![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=kevinmunoz44&show_icons=true)
+
+Kevin Munoz Benitez<a href="https://github.com/kevinmunoz44" target="_blank"> @kevinmunoz44</a> ![Your Repository's Stats]
+
+(https://github-readme-stats.vercel.app/api?username=kevinmunoz44&show_icons=true)
