@@ -2,7 +2,9 @@
 
 '''Create a new Square'''
 
+
 class Square:
+
     def __init__(self, size=0, position=(0, 0)):
         self.__size = size
         self.__position = position
@@ -27,13 +29,15 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if isinstance(value, tuple) and len(value) == 2 and all(isinstance(v, int) and v >= 0 for v in value):
+        if isinstance((value, tuple) and len(value) == 2 and
+                      all(isinstance(v, int) and v >= 0 for v in value)):
             self.__position = value
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
 
     def area(self):
         return self.__size ** 2
+
     def my_print(self):
         if self.__size == 0:
             print()
