@@ -4,6 +4,6 @@
 
 
 class Square:
+    '''Define a square'''
     def __init__(self):
-        '''Define a square'''
         pass
