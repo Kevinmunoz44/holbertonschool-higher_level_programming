@@ -40,3 +40,19 @@ expects that both arguments are either integers or floats. If argument is a non-
 Test 09: Two negative integers passed
     >>> add_integer(-5, -3)
     -8
+
+Test 14: Non-numeric arguments
+    >>> add_integer("hello", "world")
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Test 15: NaN argument
+    >>> add_integer(float('nan'), 0)
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+The function will fail if infinity is provided.
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
