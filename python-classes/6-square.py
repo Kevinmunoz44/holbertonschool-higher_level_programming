@@ -5,14 +5,17 @@
 
 class Square:
 
+    '''Define a square'''
     def __init__(self, size=0, position=(0, 0)):
         self.__size = size
         self.__position = position
 
+    '''Method get for the size'''
     @property
     def size(self):
         return self.__size
 
+    '''Method set for the size'''
     @size.setter
     def size(self, value):
         if isinstance(value, int):
@@ -23,10 +26,12 @@ class Square:
         else:
             raise TypeError("size must be an integer")
 
+    '''Method get for the position'''
     @property
     def position(self):
         return self.__position
 
+    '''Method set for the position'''
     @position.setter
     def position(self, value):
         if isinstance((value, tuple) and len(value) == 2 and
@@ -35,9 +40,11 @@ class Square:
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
 
+    '''Return area of a square'''
     def area(self):
         return self.__size ** 2
 
+    '''prints in stdout the square with the character #:'''
     def my_print(self):
         if self.__size == 0:
             print()
