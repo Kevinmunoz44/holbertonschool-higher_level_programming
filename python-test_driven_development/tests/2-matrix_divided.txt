@@ -1,0 +1,27 @@
+===========================
+2-matrix_divided.py
+===========================
+Using ``2-matrix_divided.py``
+----------------------
+
+This module defines divides all elements of a matrix ``matrix_divided(matrix, div)``.
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+
+Now Test
+
+Function add two number
+    >>> print(matrix_divided(matrix, 3))
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Function not divides for 0
+    >>> print(matrix_divided(matrix, 0))
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
+
+Function divides with a string
+    >>> print(matrix_divided(matrix, "Hello"))
+    Traceback (most recent call last):
+    TypeError: div must be a number
