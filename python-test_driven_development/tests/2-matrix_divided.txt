@@ -31,3 +31,10 @@ Function the matrix None
     Traceback (most recent call last):
         ...
     TypeError: div must be a number
+
+Function atrix is a list
+    >>> matrix = "not a list, is a string"
+    >>> print(matrix_divided(matrix, None))
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
