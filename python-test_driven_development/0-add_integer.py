@@ -1,15 +1,14 @@
 #!/usr/bin/python3
-"""
-Define the functions say my name
-"""
+'''Add the numbers integer'''
 
 
-def say_my_name(first_name, last_name=""):
-    """
-    Define instance variables and return name and last name
-    """
-    if not isinstance(first_name, str):
-        raise TypeError("first_name must be a string")
-    if not isinstance(last_name, str):
-        raise TypeError("last_name must be a string")
-    print("My name is {} {}".format(first_name, last_name))
+def add_integer(a, b=98):
+
+    '''Condicionals a number'''
+    if not isinstance(a, int) and not isinstance(a, float):
+        raise TypeError("a must be an integer")
+
+    if not isinstance(b, int) and not isinstance(b, float):
+        raise TypeError("b must be an integer")
+
+    return(int(a) + int(b))
