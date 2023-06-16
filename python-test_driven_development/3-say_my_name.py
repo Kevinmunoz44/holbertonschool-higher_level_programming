@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+'''Print the name and lastname'''
+
+
 def say_my_name(first_name, last_name=""):
     """
     Define instance variables and return name and last name
