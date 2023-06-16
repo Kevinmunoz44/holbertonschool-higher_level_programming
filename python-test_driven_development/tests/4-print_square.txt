@@ -1,0 +1,40 @@
+===========================
+4-print_square.py
+===========================
+
+Using ``4-print_square.py``
+----------------------
+This module defines def say_my_name(first_name, last_name=""):
+``first_name must be a string or last_name must be a string``.
+    >>> print_square = __import__('4-print_square').print_square
+
+Print square of Characters
+    >>> print_square(0)
+
+One digit
+    >>> print_square(1)
+    #
+
+Negative
+    >>> print_square(-2)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
+
+Float
+    >>> print_square(2.5)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+String
+    >>> print_square("4")
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+Empty
+    >>> print_square()
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
