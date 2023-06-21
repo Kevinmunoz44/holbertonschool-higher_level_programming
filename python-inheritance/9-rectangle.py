@@ -28,7 +28,3 @@ class Rectangle(BaseGeometry):
     '''Function str'''
     def __str__(self):
         return self.__repr__()
-
-    '''Function for print self'''
-    def print(self):
-        print(self)
