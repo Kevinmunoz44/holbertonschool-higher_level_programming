@@ -3,4 +3,7 @@
 
 
 class BaseGeometry:
-    pass
+
+    '''define a function init'''
+    def __init__(self):
+        pass
