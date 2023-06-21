@@ -12,15 +12,15 @@ class Rectangle(BaseGeometry):
 
     '''function for privated with and height'''
     def __init__(self, width, height):
-        self.width = width
-        self.height = height
+        self.__width = width
+        self.__height = height
         self.integer_validator("width", width)
         self.integer_validator("height", height)
 
     '''Function for area of a rectangle'''
     def area(self):
-        return self.width * self.height
+        return self.__width * self.__height
 
     '''Function str'''
     def __str__(self):
-        return ("[Rectangle] {}/{}".format(self.width, self.height))
+        return ("[Rectangle] {}/{}".format(self.__width, self.__height))
