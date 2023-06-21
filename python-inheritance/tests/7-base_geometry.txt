@@ -1,40 +1,164 @@
->>> bg = __import__('7-base_geometry').BaseGeometry
+======================
+7. BaseGeometry
+======================
+Class BaseGeometry
+========
+Class BaseGeometry with an area method that raises an error and and integer_validator
+to validate the entry argumnet of value.
+Import module:
+--------------
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    Create a new instance of BaseGeometry class:
+    >>> base_g = BaseGeometry()
+    Should execute succesfully:
+    >>> base_g.integer_validator("Claire", 23)
+    Should raise TypeError:
+    >>> base_g.integer_validator("Peter", 5.89)
+    Traceback (most recent call last):
+    ...
+    TypeError: Peter must be an integer
+    Should raise ValueError:
+    >>> base_g.integer_validator("Peter", -37)
+    Traceback (most recent call last):
+    ...
+    ValueError: Peter must be greater than 0
+    Should raise ValueError:
+    >>> base_g.integer_validator("Peter", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: Peter must be greater than 0
+    Should raise TypeError:
+    >>> base_g.integer_validator("age", "4")
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+    Should raise TypeError:
+    >>> base_g.integer_validator("age", (4,))
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+    Should Raise TypeError:
+    >>> base_g.integer_validator("age", [3])
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+    Should raise TypeError:
+    >>> base_g.integer_validator("age", True)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+    Should raise TypeError:
+    >>> base_g.integer_validator("age", {3,4})
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+    Should raise TypeError:
+    >>> base_g.integer_validator("age", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+    Should raise Exception:
+    >>> base_g.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+    Checking calling integer_validator with no arguments:
+	>>> base_g.integer_validator()
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+    Checking calling integer_validator with more than 2 arguments:
+	>>> base_g.integer_validator("test", 1, 2)
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() takes 3 positional arguments but 4 were given
+11:32
+======================
+7. BaseGeometry
+======================
+Class BaseGeometry
+========
+Class BaseGeometry with an area method that raises an error and and integer_validator
+to validate the entry argumnet of value.
 
->>> a = bg()
+Import module:
+--------------
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
->>> a.area()
-Traceback (most recent call last):
-...
-Exception: area() is not implemented
+    Create a new instance of BaseGeometry class:
+    >>> base_g = BaseGeometry()
 
->>> a.integer_validator("leo", 1)
+    Should execute succesfully:
+    >>> base_g.integer_validator("Claire", 23)
 
->>> a.integer_validator("leo", 0)
-Traceback (most recent call last):
-...
-ValueError: leo must be greater than 0
+    Should raise TypeError:
+    >>> base_g.integer_validator("Peter", 5.89)
+    Traceback (most recent call last):
+    ...
+    TypeError: Peter must be an integer
 
->>> a.integer_validator("Leo", "a")
-Traceback (most recent call last):
-...
-TypeError: Leo must be an integer
+    Should raise ValueError:
+    >>> base_g.integer_validator("Peter", -37)
+    Traceback (most recent call last):
+    ...
+    ValueError: Peter must be greater than 0
 
->>> a.integer_validator("Leo", None)
-Traceback (most recent call last):
-...
-TypeError: Leo must be an integer
+    Should raise ValueError:
+    >>> base_g.integer_validator("Peter", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: Peter must be greater than 0
 
->>> a.integer_validator("Leo", [1])
-Traceback (most recent call last):
-...
-TypeError: Leo must be an integer
+    Should raise TypeError:
+    >>> base_g.integer_validator("age", "4")
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
 
->>> a.integer_validator("Leo", 1.1)
-Traceback (most recent call last):
-...
-TypeError: Leo must be an integer
+    Should raise TypeError:
+    >>> base_g.integer_validator("age", (4,))
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
 
->>> a.integer_validator("leo", -10)
-Traceback (most recent call last):
-...
-ValueError: leo must be greater than 0
+    Should Raise TypeError:
+    >>> base_g.integer_validator("age", [3])
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+    Should raise TypeError:
+    >>> base_g.integer_validator("age", True)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+    Should raise TypeError:
+    >>> base_g.integer_validator("age", {3,4})
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+    Should raise TypeError:
+    >>> base_g.integer_validator("age", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+    Should raise Exception:
+    >>> base_g.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+    Checking calling integer_validator with no arguments:
+	>>> base_g.integer_validator()
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+    Checking calling integer_validator with more than 2 arguments:
+	>>> base_g.integer_validator("test", 1, 2)
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() takes 3 positional arguments but 4 were given
