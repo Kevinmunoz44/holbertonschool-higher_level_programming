@@ -9,6 +9,8 @@ BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
+
+    '''function for privated with and height'''
     def __init__(self, width, height):
         self._width = width
         self._height = height
