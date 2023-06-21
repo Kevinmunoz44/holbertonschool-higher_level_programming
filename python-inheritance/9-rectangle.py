@@ -26,5 +26,9 @@ class Rectangle(BaseGeometry):
         print(self)
 
     '''Function for print mensagge'''
-    def __str__(self):
+    def __repr__(self):
         return f"[Rectangle] {self.width}/{self.height}"
+
+    '''Function str'''
+    def __str__(self):
+        return self.__repr__()
