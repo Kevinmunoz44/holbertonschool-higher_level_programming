@@ -16,53 +16,74 @@ Now use it:
 
 	>>> bg.area()
 	Traceback (most recent call last):
+        ...
 	Exception: area() is not implemented
 
 	>>> bg.integer_validator()
 	Traceback (most recent call last):
+        ...
 	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 	 
 	>>> bg.integer_validator("data", 3.14)
 	Traceback (most recent call last):
+        ...
 	TypeError: data must be an integer
 
     
 	>>> bg.integer_validator("data", "carlos")
 	Traceback (most recent call last):
+        ...
 	TypeError: data must be an integer
+
 
 	>>> bg.integer_validator("data", True)
 	Traceback (most recent call last):
+        ...
 	TypeError: data must be an integer
+
 
 	>>> bg.integer_validator("data", (4,))
 	Traceback (most recent call last):
+        ...
 	TypeError: data must be an integer
+
 
 	>>> bg.integer_validator("data", None)
 	Traceback (most recent call last):
+        ...
 	TypeError: data must be an integer
+
 
 	>>> bg.integer_validator("data", {1, 2, 3})
 	Traceback (most recent call last):
+        ...
 	TypeError: data must be an integer
+
 
 	>>> bg.integer_validator("data", (1, 2, 3))
 	Traceback (most recent call last):
+        ...
 	TypeError: data must be an integer
+
 
 	>>> bg.integer_validator("data", [1, 2, 3])
 	Traceback (most recent call last):
+        ...
 	TypeError: data must be an integer
+
 
 	>>> bg.integer_validator("data", 0)
 	Traceback (most recent call last):
+        ...
 	ValueError: data must be greater than 0
+
 
 	>>> bg.integer_validator("data", -98)
 	Traceback (most recent call last):
+        ...
 	ValueError: data must be greater than 0
+
 
 	>>> bg.integer_validator("data", 98)
 
