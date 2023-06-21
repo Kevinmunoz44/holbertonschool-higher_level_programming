@@ -2,7 +2,6 @@
 '''Create a new class call My list'''
 
 
-
 class MyList(list):
     '''Function that prints a list of objects'''
 
