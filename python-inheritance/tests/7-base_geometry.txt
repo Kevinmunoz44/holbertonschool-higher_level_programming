@@ -1,148 +1,91 @@
-``7-base_geometry`` module
-==========================
+``7-base_geometry`` function
+========================
 
-using ``7-base_geometry:
-------------------------
+Using ``7-base_geometry``
+---------------------
 
-first, import function from module:
-	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+Test Task 0
 
-Test: class is type BaseGeometry:
+     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-	>>> test = BaseGeometry()
-	>>> type(test) == BaseGeometry
-	True
 
-Test: undefinded area method is an instance method:
+Section //
+=========================
 
-	>>> type(BaseGeometry.__dict__['area'])
-	<class 'function'>
+case #0:
+     >>> bg = BaseGeometry()
+     >>> type(bg)
+     <class '7-base_geometry.BaseGeometry'>
 
-Test: area normal behavior:
+case #1:
+     >>> bg = BaseGeometry(None)
+     Traceback (most recent call last):
+     TypeError: object() takes no parameters
 
-	>>> test.area()
-	Traceback (most recent call last):
-	...
-	Exception: area() is not implemented
+case #2:
+     >>> bg.area()
+     Traceback (most recent call last):
+     Exception: area() is not implemented
 
-Test: no args for area:
+case #3:
+     >>> bg.integer_validator()
+     Traceback (most recent call last):
+     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-	>>> test.__class__.area()
-	Traceback (most recent call last):
-	...
-	TypeError: area() missing 1 required positional argument: 'self'
+case #4:
+     >>> bg.integer_validator(None)
+     Traceback (most recent call last):
+     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-Test: single additional arg for area:
+case #5:
+     >>> bg.integer_validator("testing", 0)
+     Traceback (most recent call last):
+     ValueError: testing must be greater than 0
 
-	>>> test.area(7)
-	Traceback (most recent call last):
-	...
-	TypeError: area() takes 1 positional argument but 2 were given
+case #6:
+     >>> bg.integer_validator("testing")
+     Traceback (most recent call last):
+     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-Test: two extra args for area:
+case #7:
+     >>> bg.integer_validator("testing", "test")
+     Traceback (most recent call last):
+     TypeError: testing must be an integer
 
-	>>> test.area(1, 7)
-	Traceback (most recent call last):
-	...
-	TypeError: area() takes 1 positional argument but 3 were given
+case #8:
+     >>> bg.integer_validator("testing", True)
+     Traceback (most recent call last):
+     TypeError: testing must be an integer
 
-Test: integer_validator method is an instance method:
+case #9:
+     >>> bg.integer_validator("testing", None)
+     Traceback (most recent call last):
+     TypeError: testing must be an integer
 
-	>>> type(BaseGeometry.__dict__['integer_validator'])
-	<class 'function'>
+case #10:
+     >>> bg.integer_validator("testing", -7)
+     Traceback (most recent call last):
+     ValueError: testing must be greater than 0
 
-Test: int validator normal behavior:
+case #11:
+     >>> bg.integer_validator("testing", (7, 9))
+     Traceback (most recent call last):
+     TypeError: testing must be an integer
 
-	>>> test.integer_validator("size", 5)
+case #12:
+     >>> bg.integer_validator("testing", [7])
+     Traceback (most recent call last):
+     TypeError: testing must be an integer
 
-Test: int validator normal 2:
+case #13:
+     >>> bg.integer_validator("testing", {7, 8})
+     Traceback (most recent call last):
+     TypeError: testing must be an integer
 
-	>>> test.integer_validator("key", 10)
+case #14:
+     >>> bg.integer_validator("testing", 7.7)
+     Traceback (most recent call last):
+     TypeError: testing must be an integer
 
-Test: call int val via class no args:
-
-	>>> test.__class__.integer_validator()
-	Traceback (most recent call last):
-	...
-	TypeError: integer_validator() missing 3 required positional arguments: 'self', 'name', and 'value'
-
-Test: send no arg in call:
-
-	>>> test.integer_validator()
-	Traceback (most recent call last):
-	...
-	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
-
-Test: send lots of args:
-
-	>>> test.integer_validator(1, 8, 7)
-	Traceback (most recent call last):
-	...
-	TypeError: integer_validator() takes 3 positional arguments but 4 were given
-
-Test: give a float as value:
-
-	>>> test.integer_validator("impeach", 4.5)
-	Traceback (most recent call last):
-	...
-	TypeError: impeach must be an integer
-
-Test: send string instead of int:
-
-	>>> test.integer_validator("impeach", "trump")
-	Traceback (most recent call last):
-	...
-	TypeError: impeach must be an integer
-
-Test: send None instead of value:
-
-	>>> test.integer_validator("hello", None)
-	Traceback (most recent call last):
-	...
-	TypeError: hello must be an integer
-
-Test: send True instead of value:
-
-	>>> test.integer_validator("pythoniscool", True)
-	Traceback (most recent call last):
-	...
-	TypeError: pythoniscool must be an integer
-
-Test: send it a list:
-
-	>>> test.integer_validator("list", [1])
-	Traceback (most recent call last):
-	...
-	TypeError: list must be an integer
-
-Test: give it 0:
-
-	>>> test.integer_validator("zero", 0)
-	Traceback (most recent call last):
-	...
-	ValueError: zero must be greater than 0
-
-Test: give it a negative int:
-
-	>>> test.integer_validator("negative", -187)
-	Traceback (most recent call last):
-	...
-	ValueError: negative must be greater than 0
-
-Test: empty string ok value:
-
-	>>> test.integer_validator("", 1)
-
-Test: tuple instead of int:
-
-	>>> test.integer_validator("test", (1, 8, 7))
-	Traceback (most recent call last):
-	...
-	TypeError: test must be an integer
-
-Test: how about a dictionary?:
-
-	>>> test.integer_validator("dictionary", {1, 8})
-	Traceback (most recent call last):
-	...
-	TypeError: dictionary must be an integer
+case #15:
+     >>> bg.integer_validator("testing", 7)
