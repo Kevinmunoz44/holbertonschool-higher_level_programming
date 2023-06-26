@@ -3,10 +3,10 @@
 
 class Base:
     __nb_objects = 0
-    
+
     '''Define the function __init__'''
     def __init__(self, id=None):
-        
+
         '''Conditionals for id'''
         if id is not None:
             self.id = id
