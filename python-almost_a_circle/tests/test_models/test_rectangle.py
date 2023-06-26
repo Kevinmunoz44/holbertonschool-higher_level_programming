@@ -17,7 +17,7 @@ class TestBase(unittest.TestCase):
         r2 = Rectangle(None)
         self.assertEqual(r1.id, r2.id - 1)
 
-        self.assertEqual(20, Base().id)
+        self.assertEqual(20, Rectangle().id)
 
 
 if __name__ == '__main__':
