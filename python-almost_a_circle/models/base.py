@@ -3,6 +3,7 @@
 
 
 class Base:
+    '''This is contructor'''
     __nb_objects = 0
 
     '''Define the function __init__'''
