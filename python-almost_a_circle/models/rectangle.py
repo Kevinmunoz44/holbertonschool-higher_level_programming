@@ -16,17 +16,17 @@ class Rectangle(Base):
         self.y = y
         super().__init__(id)
 
-    '''Method get'''
+    '''Method get for widht'''
     @property
     def width(self):
         return self.__width
 
-    '''Method set'''
+    '''Method set for width'''
     @width.setter
     def width(self, value):
         self.__width = value
 
-    '''Method get for width'''
+    '''Method get for height'''
     @property
     def height(self):
         return self.__height
