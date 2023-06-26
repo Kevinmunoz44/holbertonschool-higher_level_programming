@@ -32,6 +32,7 @@ class Rectangle(Base):
         return self.__height
 
     '''Method set for height'''
+    @height.setter
     def height(self, value):
         self.__height = value
 
@@ -41,6 +42,7 @@ class Rectangle(Base):
         return self.__x
 
     '''Method set for x'''
+    @x.setter
     def x(self, value):
         self.__x = value
 
@@ -50,5 +52,6 @@ class Rectangle(Base):
         return self.__y
 
     '''Method set for y'''
+    @y.setter
     def y(self, value):
         self.__y = value
