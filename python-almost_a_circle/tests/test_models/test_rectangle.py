@@ -79,6 +79,34 @@ class TestBase(unittest.TestCase):
         r = Rectangle(4, 5, 1, 2, 10)
         expected_output = "[Rectangle] (10) 1/2 - 4/5"
         self.assertEqual(str(r), expected_output)
+    
+    def test_update(self):
+        r = Rectangle(1, 1, 1, 1, 1)
+
+        r.update(2)
+        self.assertEqual(r.id, 2)
+
+        r.update(3, 4)
+        self.assertEqual(r.id, 3)
+        self.assertEqual(r.width, 4)
+
+        r.update(5, 6, 7)
+        self.assertEqual(r.id, 5)
+        self.assertEqual(r.width, 6)
+        self.assertEqual(r.height, 7)
+
+        r.update(8, 9, 10, 11)
+        self.assertEqual(r.id, 8)
+        self.assertEqual(r.width, 9)
+        self.assertEqual(r.height, 10)
+        self.assertEqual(r.x, 11)
+
+        r.update(12, 13, 14, 15, 16)
+        self.assertEqual(r.id, 12)
+        self.assertEqual(r.width, 13)
+        self.assertEqual(r.height, 14)
+        self.assertEqual(r.x, 15)
+        self.assertEqual(r.y, 16)
 
 if __name__ == '__main__':
     unittest.main()
