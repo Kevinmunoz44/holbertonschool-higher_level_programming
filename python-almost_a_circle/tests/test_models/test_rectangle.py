@@ -108,5 +108,16 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r.x, 15)
         self.assertEqual(r.y, 16)
 
+        r.update(id=17)
+        self.assertEqual(r.id, 17)
+
+        r.update(width=18, height=19)
+        self.assertEqual(r.width, 18)
+        self.assertEqual(r.height, 19)
+
+        r.update(x=20, y=21)
+        self.assertEqual(r.x, 20)
+        self.assertEqual(r.y, 21)
+
 if __name__ == '__main__':
     unittest.main()
