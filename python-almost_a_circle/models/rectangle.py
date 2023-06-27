@@ -98,6 +98,7 @@ class Rectangle(Base):
 
     '''Function for update'''
     def update(self, *args):
+        '''Conditionals for the args'''
         if len(args) > 0:
             self.id = args[0]
         if len(args) > 1:
