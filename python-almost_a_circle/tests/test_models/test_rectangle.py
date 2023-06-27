@@ -1,6 +1,7 @@
 import unittest
 from models.rectangle import Rectangle
-
+from io import StringIO
+import sys
 
 class TestBase(unittest.TestCase):
 
@@ -62,6 +63,17 @@ class TestBase(unittest.TestCase):
         rect.height = 3
         self.assertEqual(rect.area(), 30)
 
+    def test_display(self):
+        captured_output = StringIO()
+        sys.stdout = captured_output
+
+        r = Rectangle(3, 4)
+        r.display()
+
+        sys.stdout = sys.__stdout__
+
+        expected_output = "###\n###\n###\n"
+        self.assertEqual(captured_output.getvalue(), expected_output)
 
 if __name__ == '__main__':
     unittest.main()
