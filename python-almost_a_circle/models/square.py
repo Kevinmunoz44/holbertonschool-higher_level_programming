@@ -20,10 +20,12 @@ class Square(Rectangle):
     '''Method get for size'''
     @property
     def size(self):
+        '''return the width'''
         return self.width
 
     '''Method set for size'''
     @size.setter
     def size(self, value):
-        self.width = value
-        self.height = value
+        '''Enter the attributes'''
+        self._width = value
+        self._height = value
