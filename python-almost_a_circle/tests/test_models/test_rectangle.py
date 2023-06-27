@@ -67,7 +67,7 @@ class TestBase(unittest.TestCase):
         captured_output = StringIO()
         sys.stdout = captured_output
 
-        r = Rectangle(3, 4)
+        r = Rectangle(3, 4, 2, 1)
         r.display()
 
         sys.stdout = sys.__stdout__
@@ -78,6 +78,7 @@ class TestBase(unittest.TestCase):
     def test_str_representation(self):
         r = Rectangle(4, 5, 1, 2, 10)
         expected_output = "[Rectangle] (10) 1/2 - 4/5"
-        self.assertEqual(str(r), expected_output)    
+        self.assertEqual(str(r), expected_output)
+
 if __name__ == '__main__':
     unittest.main()
