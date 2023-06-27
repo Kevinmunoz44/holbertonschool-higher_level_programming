@@ -110,6 +110,7 @@ class Rectangle(Base):
         if len(args) > 4:
             self.y = args[4]
 
+        '''Conditional for kwargs key and values'''
         if len(args) == 0 or len(kwargs) > 0:
             for key, value in kwargs.items():
                 if key == "id":
