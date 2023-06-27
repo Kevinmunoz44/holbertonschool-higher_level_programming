@@ -75,5 +75,9 @@ class TestBase(unittest.TestCase):
         expected_output = "###\n###\n###\n"
         self.assertEqual(captured_output.getvalue(), expected_output)
 
+    def test_str_representation(self):
+        r = Rectangle(4, 5, 1, 2, 10)
+        expected_output = "[Rectangle] (10) 1/2 - 4/5"
+        self.assertEqual(str(r), expected_output)    
 if __name__ == '__main__':
     unittest.main()
