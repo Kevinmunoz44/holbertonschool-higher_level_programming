@@ -43,7 +43,7 @@ class Square(Rectangle):
             self.y = args[3]
 
         '''Conditional for kwargs key and values'''
-        if args != None:
+        if len(args) == 0 or len(kwargs) > 0:
             for key, value in kwargs.items():
                 if key == "id":
                     self.id = value
