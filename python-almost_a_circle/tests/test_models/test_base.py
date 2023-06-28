@@ -1,6 +1,8 @@
 import unittest
 from models.base import Base
-
+from unittest.mock import patch
+from models.square import Square
+from models.rectangle import Rectangle
 
 class TestBase(unittest.TestCase):
 
@@ -43,7 +45,24 @@ class TestBase(unittest.TestCase):
     def test_base_from_json_string_with_data_returning_list(self):
         result = Base.from_json_string('[{"id": 89}]')
         self.assertIsInstance(result, list)
+  
+    def test_save_to_file_None(self):
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            self.assertEqual("[]", f.read())
 
+    def test_save_to_file_empty_list(self):
+        Square.save_to_file([])
+        with open("Square.json", "r") as f:
+            self.assertEqual("[]", f.read())
+
+    def test_save_to_file_no_args(self):
+        with self.assertRaises(TypeError):
+            Rectangle.save_to_file()
+
+    def test_save_to_file_more_than_one_arg(self):
+        with self.assertRaises(TypeError):
+            Square.save_to_file([], 1)
 
 if __name__ == '__main__':
     unittest.main()

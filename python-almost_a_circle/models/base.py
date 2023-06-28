@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+'''Imports necesary'''
+import json
 """Define the Base Class"""
 
 
@@ -21,6 +23,15 @@ class Base:
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        if list_objs is None:
+            list_objs = []
+        dict_list = [obj.to_dictionary() for obj in list_objs]
+        json_string = cls.to_json_string(dict_list)
+        with open(cls.__name__ + ".json", "w") as file:
+            file.write(json_string)
 
     @staticmethod
     def from_json_string(json_string):
