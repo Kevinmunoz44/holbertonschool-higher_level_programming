@@ -29,3 +29,27 @@ class Square(Rectangle):
         '''Enter the attributes'''
         self.width = value
         self.height = value
+
+    '''Function for run each atributte'''
+    def update(self, *args, **kwargs):
+        if len(args) > 0:
+            self.id = args[0]
+        if len(args):
+            self.size
+        if len(args) > 2:
+            self.x = args[2]
+        if len(args) > 3:
+            self.y = args[3]
+
+        '''Conditional for kwargs key and values'''
+        if args != None:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                if key == "size":
+                    self.size = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value
+            

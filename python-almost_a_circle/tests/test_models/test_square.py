@@ -29,6 +29,38 @@ class TestSquare(unittest.TestCase):
         s.size = 12
         self.assertEqual(s.width, 12)
         self.assertEqual(s.height, 12)
+        
+    def test_update_with_args(self):
+
+        instance = Square()
+        id_value = 1
+        size_value = 10
+        x_value = 20
+        y_value = 30
+
+
+        instance.update(id_value, size_value, x_value, y_value)
+
+
+        self.assertEqual(instance.id, id_value)
+        self.assertEqual(instance.size, size_value)
+        self.assertEqual(instance.x, x_value)
+        self.assertEqual(instance.y, y_value)
+
+    def test_update_with_kwargs(self):
+
+        instance = Square()
+        id_value = 1
+        size_value = 10
+        x_value = 20
+        y_value = 30
+
+        instance.update(id=id_value, size=size_value, x=x_value, y=y_value)
+
+        self.assertEqual(instance.id, id_value)
+        self.assertEqual(instance.size, size_value)
+        self.assertEqual(instance.x, x_value)
+        self.assertEqual(instance.y, y_value)
 
 if __name__ == '__main__':
     unittest.main()
