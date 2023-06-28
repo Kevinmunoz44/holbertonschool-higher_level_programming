@@ -1,66 +1,66 @@
 import unittest
 from models.square import Square
 
+
 class TestSquare(unittest.TestCase):
 
-    def test_str(self):
-        s = Square(5, 1, 2, 3)
-        self.assertEqual(str(s), "[Square] (3) 1/2 - 5")
+    def test_square_constructor(self):
+        square = Square(5, 2, 3, 1)
+        self.assertEqual(square.width, 5)
+        self.assertEqual(square.height, 5)
+        self.assertEqual(square.x, 2)
+        self.assertEqual(square.y, 3)
+        self.assertEqual(square.id, 1)
 
-        s = Square(10, 0, 0, 4)
-        self.assertEqual(str(s), "[Square] (4) 0/0 - 10")
+    def test_square_area(self):
+        square = Square(5)
+        self.assertEqual(square.area(), 25)
 
-        s = Square(3, 2, 2)
-        self.assertEqual(str(s), "[Square] (None) 2/2 - 3")
-        
-    def test_size_getter(self):
-        s = Square(5)
-        self.assertEqual(s.size, 5)
+    def test_square_str(self):
+        square = Square(5, 2, 3, 1)
+        self.assertEqual(str(square), "[Square] (1) 2/3 - 5")
 
-        s.size = 10
-        self.assertEqual(s.size, 10)
+    def test_square_size_getter(self):
+        square = Square(5)
+        self.assertEqual(square.size, 5)
 
-    def test_size_setter(self):
-        s = Square(5)
-        s.size = 8
-        self.assertEqual(s.width, 8)
-        self.assertEqual(s.height, 8)
+    def test_square_size_setter(self):
+        square = Square(5)
+        square.size = 7
+        self.assertEqual(square.size, 7)
+        self.assertEqual(square.width, 7)
+        self.assertEqual(square.height, 7)
 
-        s.size = 12
-        self.assertEqual(s.width, 12)
-        self.assertEqual(s.height, 12)
-        
-    def test_update_with_args(self):
+    def test_square_size_setter_with_validation(self):
+        square = Square(5)
+        with self.assertRaises(ValueError):
+            square.size = -2
+        with self.assertRaises(TypeError):
+            square.size = "invalid"
 
-        instance = Square()
-        id_value = 1
-        size_value = 10
-        x_value = 20
-        y_value = 30
+    def test_square_update_with_args(self):
+        square = Square(5, 2, 3, 1)
+        square.update(2, 7, 4, 5)
+        self.assertEqual(square.id, 2)
+        self.assertEqual(square.size, 7)
+        self.assertEqual(square.x, 4)
+        self.assertEqual(square.y, 5)
 
+    def test_square_update_with_kwargs(self):
+        square = Square(5, 2, 3, 1)
+        square.update(id=2, size=7, x=4, y=5)
+        self.assertEqual(square.id, 2)
+        self.assertEqual(square.size, 7)
+        self.assertEqual(square.x, 4)
+        self.assertEqual(square.y, 5)
 
-        instance.update(id_value, size_value, x_value, y_value)
-
-
-        self.assertEqual(instance.id, id_value)
-        self.assertEqual(instance.size, size_value)
-        self.assertEqual(instance.x, x_value)
-        self.assertEqual(instance.y, y_value)
-
-    def test_update_with_kwargs(self):
-
-        instance = Square()
-        id_value = 1
-        size_value = 10
-        x_value = 20
-        y_value = 30
-
-        instance.update(id=id_value, size=size_value, x=x_value, y=y_value)
-
-        self.assertEqual(instance.id, id_value)
-        self.assertEqual(instance.size, size_value)
-        self.assertEqual(instance.x, x_value)
-        self.assertEqual(instance.y, y_value)
+    def test_square_update_with_args_and_kwargs(self):
+        square = Square(5, 2, 3, 1)
+        square.update(2, size=7, x=4, y=5)
+        self.assertEqual(square.id, 2)
+        self.assertEqual(square.size, 7)
+        self.assertEqual(square.x, 4)
+        self.assertEqual(square.y, 5)
 
 if __name__ == '__main__':
     unittest.main()
