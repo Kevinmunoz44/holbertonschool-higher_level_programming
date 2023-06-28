@@ -119,5 +119,16 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r.x, 20)
         self.assertEqual(r.y, 21)
 
+    def test_to_dictionary(self):
+        obj = Rectangle(10, 20, 1, 100, 200)
+        expected_dict = {
+            "x": 10,
+            "y": 20,
+            "id": 1,
+            "height": 100,
+            "width": 200
+        }
+        self.assertEqual(obj.to_dictionary(), expected_dict)
+
 if __name__ == '__main__':
     unittest.main()
