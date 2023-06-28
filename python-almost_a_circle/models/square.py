@@ -32,6 +32,7 @@ class Square(Rectangle):
 
     '''Function for run each atributte'''
     def update(self, *args, **kwargs):
+        '''Conditional for args'''
         if len(args) > 0:
             self.id = args[0]
         if len(args):
