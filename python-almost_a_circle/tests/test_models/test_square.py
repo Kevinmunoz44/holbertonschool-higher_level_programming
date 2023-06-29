@@ -73,19 +73,46 @@ class TestSquare(unittest.TestCase):
         }
         self.assertDictEqual(square_dict, expected_dict)
 
+    def test_square_creation(self):
+        square = Square(1, 2)
+        self.assertEqual(square.size, 1)
+        self.assertEqual(square.x, 2)
+        self.assertEqual(square.y, 0)
 
-    def test_square_with_negative_values(self):
-        square = Square(5, 2, 3, 1)
+    def test_square_creation_with_y(self):
+        square = Square(1, 2, 3)
+        self.assertEqual(square.size, 1)
+        self.assertEqual(square.x, 2)
+        self.assertEqual(square.y, 3)
 
+    def test_square_creation_with_invalid_size(self):
+        with self.assertRaises(TypeError):
+            Square("1")
+
+    def test_square_creation_with_invalid_x(self):
+        with self.assertRaises(TypeError):
+            Square(1, "2")
+
+    def test_square_creation_with_invalid_y(self):
+        with self.assertRaises(TypeError):
+            Square(1, 2, "3")
+
+    def test_square_creation_with_negative_size(self):
         with self.assertRaises(ValueError):
-            square.size = -5
+            Square(-1)
 
+    def test_square_creation_with_negative_x(self):
         with self.assertRaises(ValueError):
-            square.x = -2
+            Square(1, -2)
 
+    def test_square_creation_with_negative_y(self):
         with self.assertRaises(ValueError):
-            square.y = -3
+            Square(1, 2, -3)
 
-    
+    def test_square_creation_with_zero_size(self):
+        with self.assertRaises(ValueError):
+            Square(0)
+
+
 if __name__ == '__main__':
     unittest.main()

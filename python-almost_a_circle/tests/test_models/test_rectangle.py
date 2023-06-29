@@ -2,6 +2,7 @@ import unittest
 from models.rectangle import Rectangle
 from unittest.mock import patch
 import io
+from io import StringIO
 
 
 class TestRectangle(unittest.TestCase):
@@ -13,14 +14,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.x, 0)
         self.assertEqual(rect.y, 0)
         self.assertIsNotNone(rect.id)
-        
-    def test_negative_values(self):
-        with self.assertRaises(ValueError):
-            rect = Rectangle(-1, 2)
-        with self.assertRaises(ValueError):
-            rect = Rectangle(3, -4)
-        with self.assertRaises(ValueError):
-            rect = Rectangle(-5, -6)
 
     def test_rectangle_width_validation(self):
         with self.assertRaises(TypeError):
@@ -62,17 +55,31 @@ class TestRectangle(unittest.TestCase):
         expected_output = "[Rectangle] (1) 2/3 - 4/5"
         self.assertEqual(str(rect), expected_output)
 
-    def test_rectangle_str_different_values(self):
-        rect = Rectangle(8, 3, 1, 2, 5)
-        expected_output = "[Rectangle] (5) 1/2 - 8/3"
-        self.assertEqual(str(rect), expected_output)
-    
     def test_display(self):
         rect = Rectangle(4, 5, 2, 3, 1)
         expected_output = "\n\n\n  ####\n  ####\n  ####\n  ####\n  ####\n"
         with patch('sys.stdout', new=io.StringIO()) as fake_out:
             rect.display()
             self.assertEqual(fake_out.getvalue(), expected_output)
+
+    def test_display_one_arg(self):
+        r = Rectangle(5, 1, 2, 4, 7)
+        with self.assertRaises(TypeError):
+            r.display(1)
+    
+    def test_rectangle_display_without_x_y(self):
+        rectangle = Rectangle(5, 3)
+        expected_output = "#####\n#####\n#####\n"
+        with unittest.mock.patch("sys.stdout", new_callable=StringIO) as mock_stdout:
+            rectangle.display()
+            self.assertEqual(mock_stdout.getvalue(), expected_output)
+
+    def test_rectangle_display_without_y(self):
+        rectangle = Rectangle(5, 3, 2)
+        expected_output = "  #####\n  #####\n  #####\n"
+        with unittest.mock.patch("sys.stdout", new_callable=StringIO) as mock_stdout:
+            rectangle.display()
+            self.assertEqual(mock_stdout.getvalue(), expected_output)
 
     def test_rectangle_update_with_args(self):
         rect = Rectangle(4, 5, 2, 3, 1)
