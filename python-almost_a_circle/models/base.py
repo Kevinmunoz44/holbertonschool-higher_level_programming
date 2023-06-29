@@ -58,7 +58,7 @@ class Base:
             with open(filename, "r") as file:
                 json_string = file.read()
                 dict_list = cls.from_json_string(json_string)
-                instance_list = [cls.create(**obj_dict) 
+                instance_list = [cls.create(**obj_dict)
                                  for obj_dict in dict_list]
                 return instance_list
         except FileNotFoundError:
