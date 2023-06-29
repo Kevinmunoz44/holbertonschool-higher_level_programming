@@ -63,6 +63,30 @@ class TestBase(unittest.TestCase):
     def test_save_to_file_more_than_one_arg(self):
         with self.assertRaises(TypeError):
             Square.save_to_file([], 1)
+            
+    def test_create_rectangle(self):
+        dictionary = {'id': 1, 'width': 5, 'height': 10, 'x': 2, 'y': 3}
+        rect = Rectangle.create(**dictionary)
+        self.assertIsInstance(rect, Rectangle)
+        self.assertEqual(rect.id, 1)
+        self.assertEqual(rect.width, 5)
+        self.assertEqual(rect.height, 10)
+        self.assertEqual(rect.x, 2)
+        self.assertEqual(rect.y, 3)
+
+    def test_create_square(self):
+        dictionary = {'id': 2, 'size': 7, 'x': 4, 'y': 5}
+        square = Square.create(**dictionary)
+        self.assertIsInstance(square, Square)
+        self.assertEqual(square.id, 2)
+        self.assertEqual(square.size, 7)
+        self.assertEqual(square.x, 4)
+        self.assertEqual(square.y, 5)
+
+    def test_create_invalid_class(self):
+        dictionary = {'id': 3, 'width': 5, 'height': 10, 'x': 2, 'y': 3}
+        instance = Base.create(**dictionary)
+        self.assertIsNone(instance)
 
 if __name__ == '__main__':
     unittest.main()
