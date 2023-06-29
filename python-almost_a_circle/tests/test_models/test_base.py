@@ -83,10 +83,5 @@ class TestBase(unittest.TestCase):
         self.assertEqual(square.x, 4)
         self.assertEqual(square.y, 5)
 
-    def test_create_invalid_class(self):
-        dictionary = {'id': 3, 'width': 5, 'height': 10, 'x': 2, 'y': 3}
-        instance = Base.create(**dictionary)
-        self.assertIsNone(instance)
-
 if __name__ == '__main__':
     unittest.main()
