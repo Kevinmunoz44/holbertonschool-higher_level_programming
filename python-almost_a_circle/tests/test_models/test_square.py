@@ -74,5 +74,18 @@ class TestSquare(unittest.TestCase):
         self.assertDictEqual(square_dict, expected_dict)
 
 
+    def test_square_with_negative_values(self):
+        square = Square(5, 2, 3, 1)
+
+        with self.assertRaises(ValueError):
+            square.size = -5
+
+        with self.assertRaises(ValueError):
+            square.x = -2
+
+        with self.assertRaises(ValueError):
+            square.y = -3
+
+    
 if __name__ == '__main__':
     unittest.main()
