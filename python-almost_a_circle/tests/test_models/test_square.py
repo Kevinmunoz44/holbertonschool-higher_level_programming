@@ -73,5 +73,6 @@ class TestSquare(unittest.TestCase):
         }
         self.assertDictEqual(square_dict, expected_dict)
 
+
 if __name__ == '__main__':
     unittest.main()
