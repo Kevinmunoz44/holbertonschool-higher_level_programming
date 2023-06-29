@@ -3,6 +3,7 @@ from models.base import Base
 from unittest.mock import patch
 from models.square import Square
 from models.rectangle import Rectangle
+import os
 
 class TestBase(unittest.TestCase):
 
@@ -82,6 +83,22 @@ class TestBase(unittest.TestCase):
         self.assertEqual(square.size, 7)
         self.assertEqual(square.x, 4)
         self.assertEqual(square.y, 5)
+
+    def setUp(self):
+        self.file_name = "Base.json"
+        json_data = '[{"id": 1, "width": 10, "height": 5, "x": 0, "y": 0}, {"id": 2, "size": 7, "x": 2, "y": 3}]'
+        with open(self.file_name, "w") as file:
+            file.write(json_data)
+
+    def tearDown(self):
+        if os.path.exists(self.file_name):
+            os.remove(self.file_name)
+
+    def test_load_from_file_file_not_found(self):
+        if os.path.exists(self.file_name):
+            os.remove(self.file_name)
+        instances = Base.load_from_file()
+        self.assertEqual(len(instances), 0)
 
 if __name__ == '__main__':
     unittest.main()
