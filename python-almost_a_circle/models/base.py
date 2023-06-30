@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 '''Imports necesary'''
-import json
+import turtle
+from turtle import *
+
 """Define the Base Class"""
 
 
@@ -63,3 +65,38 @@ class Base:
                 return instance_list
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        turtle.reset()
+        drawTurtle = turtle.Turtle()
+        drawTurtle.screen.bgcolor("#4A5A5D")
+        drawTurtle.pensize(4)
+
+        drawTurtle.color("#0FC3E6")
+        for turtleRectangle in list_rectangles:
+            drawTurtle.showturtle()
+            drawTurtle.up()
+            drawTurtle.goto(turtleRectangle.x, turtleRectangle.y)
+            drawTurtle.down()
+            for k in range(2):
+                drawTurtle.forward(turtleRectangle.width)
+                drawTurtle.left(100)
+                drawTurtle.forward(turtleRectangle.height)
+                drawTurtle.left(100)
+            drawTurtle.hideturtle()
+
+        drawTurtle.color("#0FE634")
+        for turtleSquare in list_squares:
+            drawTurtle.showturtle()
+            drawTurtle.up()
+            drawTurtle.goto(turtleSquare.x, turtleSquare.y)
+            drawTurtle.down()
+            for k in range(2):
+                drawTurtle.forward(turtleSquare.width)
+                drawTurtle.right(-100)
+                drawTurtle.forward(turtleSquare.height)
+                drawTurtle.right(-100)
+            drawTurtle.hideturtle()
+
+        turtle.exitonclick()
